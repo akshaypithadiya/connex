@@ -1,15 +1,15 @@
-<?php include ('login.php'); ?>
+<?php include ('includes/login.php'); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Log in | postear</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<div id="header"></div> 
+<div id="header"></div>
 
 <div id="container">
     <div class="container-header">
@@ -18,8 +18,8 @@
     <div class="container-body">
       <div class="error"><?php echo $error; ?></div>
       <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
+        <input type="text" name="username" placeholder="Username" value="<?php echo @$_POST['username']; ?>" maxlength="25">
+        <input type="password" name="password" placeholder="Password" maxlength="25">
         <input type="submit" name="submit" value="Log in" class="button">
       </form>
       <a href="signup.php">
