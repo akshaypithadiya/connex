@@ -1,44 +1,30 @@
-<?php include ('includes/session.php'); ?>
+<?php include 'includes/session.php'; ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/home-style.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/sidenav.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body>
-	<div id="header">
-	<div class="user-user">
-		<div class="user-user-txt">
-			<?php echo $usersession; ?>	
-		</div>
-	</div>
-</div>
 
-<div id="main_container">
-	<div class="sidenav">
-		<a href="#"><i class="fas fa-home"></i>&nbsp;Home</a>
-		<a href="profile.php"><i class="fas fa-user"></i>&nbsp;&nbsp;Profile</a>
-	  	<a href="members.php"><i class="fas fa-user-friends"></i>Members</a>
-	    <!-- <a href="#"><i class="fas fa-clipboard"></i>&nbsp;&nbsp;&nbsp;Posts</a> -->
-	    <a href="#"><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;Notes</a>
-	    <a href="settings.php"><i class="fas fa-cog"></i>&nbsp;Settings</a>
-		<a href="logout.php"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
-	</div>
+	<?php include 'includes/header.php'; ?>
+	
+	<div id="main_container">
 
-	<div id="right-nav">
+		<?php include 'includes/sidenav.php'; ?>
+
+		<div id="right-nav"></div>
 		
+		<div class="posts"></div>
+		<div class="posts"></div>
+
 	</div>
-
-	<div class="posts">
-		hello
-	</div>
-	<div class="posts">akshay</div>
-
-
-</div>
 
 </body>
 </html>

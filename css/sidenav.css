@@ -1,0 +1,36 @@
+.sidenav {
+	width: 140px;
+	position: fixed;
+
+	//background-color: #ffffff;
+	//border: 1px solid #d7d8db;
+
+	border-radius: 5px;
+	float: left;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 12.5px;
+    color: #285473;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.sidenav a:hover {
+    background: #e1e5eb;
+    border-radius: 3px;
+}
+
+.fa-home,
+.fa-user,
+.fa-user-friends,
+.fa-clipboard,
+.fa-sticky-note,
+.fa-cog,
+.fa-sign-out-alt{
+	font-size: 15.5px;
+	margin-right: 8px;
+	color: #99b0c6;
+}

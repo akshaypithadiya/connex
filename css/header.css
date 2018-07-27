@@ -1,0 +1,27 @@
+#header{
+	background: #4a76a8;
+	height: 45px;
+	width: 100%;
+	margin: 0px auto;
+	top: 0px;
+	position: fixed;
+}
+
+.user-user{
+	max-width: 150px;
+	height: 100%;
+	float: right;
+	margin-right: 10%;
+	cursor: pointer;
+}
+
+.user-user:hover{
+	background: #3d6898;
+}
+
+.user-user-txt{
+	color: #ffffff;
+	padding: 0px 10px 0px 10px;
+	font-size: 12.5px;
+	margin-top: 15px;
+}
