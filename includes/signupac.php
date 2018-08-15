@@ -1,6 +1,6 @@
 <?php
 
-include ('connection.php');
+include 'connection.php';
 
 $username = $password = $error = ""; // variables to store error message
 

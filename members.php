@@ -39,6 +39,8 @@
 					        echo $row["username"];
 					        echo '</div>';
 
+					        echo '<i class="fas fa-plus"></i>';
+
 					        echo '</div>';
 					    }
 					} else {

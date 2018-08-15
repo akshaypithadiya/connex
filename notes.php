@@ -36,13 +36,14 @@
 			</div>
 			<div class="main-post">this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro.</div>
 
-			<div id="dta" style="border: 1px solid black;"></div>
+			
 		<!--	
 			<div class="delete-btn-container">
 				<input type="submit" class="delete-btn" value="Delete note">
 			</div>
 		-->
 		</div>
+		<div id="dta" style="border: 1px solid black;"></div>
 
 
 	</div>

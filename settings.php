@@ -1,4 +1,5 @@
 <?php include 'includes/session.php'; ?>
+<?php include 'includes/userinfo.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -27,9 +28,8 @@
   	  	  <label>Name</label>
   	  	</td>
   	  	<td>
-  	  	  <input type="text" name="fname" class="fname" value="Akshay" autocomplete="off">
-          <input type="text" name="lname" class="lname" value="Pithadiya" autocomplete="off">
-
+  	  	  <input type="text" name="fname" class="fname" value="<?php echo $f_name; ?>" autocomplete="off">
+          <input type="text" name="lname" class="lname" value="<?php echo $l_name; ?>" autocomplete="off">
   	  	</td>
   	  </tr>
   	  <tr>
@@ -37,7 +37,7 @@
   	  	  <label>About you</label>
   	  	</td>
   	  	<td>
-  	  	  <textarea name="bio" class="about"></textarea>
+  	  	  <textarea name="bio" class="about"><?php echo $about_you; ?></textarea>
   	  	</td>
   	  </tr>
   	  <tr>
@@ -45,7 +45,7 @@
   	  	  <label>Current city</label>
   	  	</td>
   	  	<td>
-  	  	  <input type="text" name="city" class="city" value="Mumbai" autocomplete="off">
+  	  	  <input type="text" name="city" class="city" value="<?php echo $current_city; ?>" autocomplete="off">
   	  	</td>
   	  </tr>
   	  <tr>
@@ -53,7 +53,7 @@
   	  	  <label>Email address</label>
   	  	</td>
   	  	<td>
-  	  	  <input type="text" name="email" class="email" value="akshay.pithadiya@gmail.com" autocomplete="off">
+  	  	  <input type="text" name="email" class="email" value="<?php echo $email_address; ?>" autocomplete="off">
   	  	</td>
   	  </tr>
   	  <tr>

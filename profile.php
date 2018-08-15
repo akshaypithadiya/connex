@@ -1,4 +1,5 @@
 <?php include 'includes/session.php'; ?>
+<?php include 'includes/userinfo.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -23,25 +24,26 @@
 
 			<div class="user-info">
 				<table cellpadding="5" border="0">
+					<col width="100">
 					<tr>
 						<td class="td-title">Name</td>
-						<td class="td-data">Akshay Pithadiya</td>
+						<td class="td-data"><?php echo $full_name; ?></td>
 					</tr>
 					<tr>
 						<td class="td-title">Username</td>
-						<td class="td-data">akshaypithadiya</td>
+						<td class="td-data"><?php echo $user_name; ?></td>
 					</tr>
 					<tr>
 						<td class="td-title">Email address</td>
-						<td class="td-data">akshay.pithadiya@gmail.com</td>
+						<td class="td-data"><?php echo $email_address; ?></td>
 					</tr>
 					<tr>
 						<td class="td-title">About you</td>
-						<td class="td-data">I love to code and like to read books.</td>
+						<td class="td-data"><?php echo $about_you; ?></td>
 					</tr>
 					<tr>
 						<td class="td-title">Current city</td>
-						<td class="td-data">Mumbai</td>
+						<td class="td-data"><?php echo $current_city; ?></td>
 					</tr>
 				</table>
 				<div class="edit-info">
