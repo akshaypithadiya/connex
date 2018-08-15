@@ -5,23 +5,26 @@ include ('connection.php');
 $username = $password = $error = ""; // variables to store error message
 
 if (isset($_POST["submit"])) {
-  if (empty($_POST["fname"]) || empty($_POST["lname"]) || empty($_POST["username"]) || empty($_POST["password"])) {
+  if (empty($_POST["fname"]) || empty($_POST["lname"]) || empty($_POST["email"]) || empty($_POST["username"]) || empty($_POST["password"])) {
     $error = "Enter all the required details";
   } else {
     // define $username and $password
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
+    $email = $_POST["email"];
     $username = $_POST["username"];
     $password = $_POST["password"];
     
     // to protect with MySQL injection
     $fname = stripslashes($fname);
     $lname = stripslashes($lname);
+    $email = stripslashes($email);
     $username = stripslashes($username);
     $password = stripslashes($password);
 
     $fname = mysqli_real_escape_string($conn, $fname);
     $lname = mysqli_real_escape_string($conn, $lname);
+    $email = mysqli_real_escape_string($conn, $email);
     $username = strtolower(mysqli_real_escape_string($conn, $username));
     $password = mysqli_real_escape_string($conn, $password);
 
@@ -35,7 +38,7 @@ if (isset($_POST["submit"])) {
       $error = "The username is already taken";
     } else {
       // SQL query to fetch information of users and finds the user match
-      $query = "INSERT INTO users (id, fname, lname, username, password) VALUES(NULL, '$fname', '$lname', '$username', '$password')";
+      $query = "INSERT INTO users (id, fname, lname, email, username, password) VALUES(NULL, '$fname', '$lname', '$email', '$username', '$password')";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
