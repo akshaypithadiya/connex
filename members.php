@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Members</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/members.css">
@@ -39,8 +41,6 @@
 					        echo $row["username"];
 					        echo '</div>';
 
-					        echo '<i class="fas fa-plus"></i>';
-
 					        echo '</div>';
 					    }
 					} else {
@@ -52,6 +52,10 @@
 				?>
 
 	</div>
+
+	<script>
+		
+	</script>
 
 </body>
 </html>

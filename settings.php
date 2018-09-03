@@ -66,7 +66,7 @@
           <label>Delete account</label>
         </td>
         <td class="delete-btn-td">
-          <input type="submit" class="delete-btn" value="Delete">
+          <a href="delete.php" class="delete-btn">Delete</a>
         </td>
       </tr>
   	</table>

@@ -13,7 +13,7 @@
 
 <div id="container">
     <div class="container-header">
-      Signup for postear
+      Signup
     </div> 
     <div class="container-body">
       <div class="error"><?php echo $error; ?></div>

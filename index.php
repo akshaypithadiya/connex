@@ -12,8 +12,9 @@
 <div id="header"></div>
 
 <div id="container">
+  
     <div class="container-header">
-      Login to postear
+      Login
     </div>
     <div class="container-body">
       <div class="error"><?php echo $error; ?></div>
