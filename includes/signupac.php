@@ -6,7 +6,7 @@ $username = $password = $error = ""; // variables to store error message
 
 if (isset($_POST["submit"])) {
   if (empty($_POST["fname"]) || empty($_POST["lname"]) || empty($_POST["email"]) || empty($_POST["username"]) || empty($_POST["password"])) {
-    $error = "Enter all the required details";
+    $error = '<div class="error">Enter all the required details</div>';
   } else {
     // define $username and $password
     $fname = $_POST["fname"];
@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
     $count = mysqli_num_rows($name_result);
     
     if ($count != 0) {
-      $error = "The username is already taken";
+      $error = '<div class="error">The username is already taken</div>';
     } else {
       // SQL query to fetch information of users and finds the user match
       $query = "INSERT INTO users (id, fname, lname, email, username, password) VALUES(NULL, '$fname', '$lname', '$email', '$username', '$password')";

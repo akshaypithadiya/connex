@@ -8,7 +8,7 @@ $username = $password = $error = ""; // variables to store error message
 
 if (isset($_POST["submit"])) {
 	if (empty($_POST["username"]) || empty($_POST["password"])) {
-		$error = "Enter username and password";
+		$error = '<div class="error">Enter username and password</div>';
 	} else {
 
 		// define $username and $password
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
 			$_SESSION["myusername"] = $username; // initializing session
 			header("location: home.php"); // redirecting to other page
 		} else {
-			$error = "Wrong username or password";
+			$error = '<div class="error">Wrong username or password</div>';
 		}
 		mysqli_close($conn); // closing connection
 	}

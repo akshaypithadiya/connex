@@ -17,7 +17,7 @@
       Login
     </div>
     <div class="container-body">
-      <div class="error"><?php echo $error; ?></div>
+      <?php echo $error; ?>
       <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
         <input type="text" name="username" placeholder="Username" value="<?php echo @$_POST['username']; ?>" maxlength="25" autocomplete="off">
         <input type="password" name="password" placeholder="Password" maxlength="25" autocomplete="off">
