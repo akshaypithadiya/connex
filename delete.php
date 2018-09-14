@@ -25,7 +25,7 @@
 
 		</div>
 		<div class="delete_main">
-			<div class="error"><?php echo $error; ?></div>
+			<?php echo $error; ?>
 			<form action="" method="POST">
 				<input type="password" name="password" class="del_pass" placeholder="Enter password"><br>
 				<input type="submit" name="submit" class="yes-btn" value="Yes, delete">

@@ -13,7 +13,7 @@ $password = $error = ""; // variables to store error message
 
 if (isset($_POST["submit"])) {
 	if (empty($_POST["password"])) {
-		$error = "Enter password";
+		$error = '<div class="error">Enter password</div>';
 
 	} else {
 
@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
 		$password = $_POST["password"];
 
 		if($password != $pwd){
-			$error = "Wrong password entered";
+			$error = '<div class="error">Wrong password entered</div>';
 		} else {
 
 			// to protect with MySQL injection

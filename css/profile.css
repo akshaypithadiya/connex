@@ -29,9 +29,10 @@ table{
 
 .edit-info{
 	//border: 1px solid black;
-	width: 125px;
-	margin-left: 142px;
+	//width: 125px;
+	//margin-left: 142px;
 	margin-top: 10px;
+	text-align: center;
 }
 
 .edit-info-btn{
@@ -49,4 +50,16 @@ table{
 .cur-profile{
 	background: #e1e5eb;
 	border-radius: 3px;
+}
+
+#pro-pic{
+	width: 85px;
+	height: 85px;
+	//border: 1px solid #d7d8db;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	margin-bottom: 10px;
 }

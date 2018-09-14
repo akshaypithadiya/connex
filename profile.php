@@ -22,6 +22,10 @@
 
 		<div class="pro-container">
 
+			<a href="images/default.png" target="_blank">
+				<img src="images/default.png" id="pro-pic">
+			</a>
+
 			<div class="user-info">
 				<table cellpadding="5" border="0">
 					<col width="100">
@@ -46,9 +50,11 @@
 						<td class="td-data"><?php echo $current_city; ?></td>
 					</tr>
 				</table>
+
 				<div class="edit-info">
 					<button type="submit" class="edit-info-btn" onclick="location.href='settings.php'">Edit information</button>
 				</div>
+
 			</div>
 		</div>
 	</div>

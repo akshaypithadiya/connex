@@ -24,24 +24,31 @@
 				
 				<?php
 
-					$members_names = "SELECT fname, lname, username FROM users";
+					$members_names = "SELECT fname, lname, username, email, about, city FROM users";
 					$result = mysqli_query($conn, $members_names);
 
 
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
+
 					    	echo '<div class="members-container">';
 
+					    	//getting fullname
 					    	echo '<div class="full-name">';
 					        echo $row["fname"]." ".$row["lname"];
 					        echo '</div>';
 
+					        //getting username
 					        echo '<div class="user-name">';
 					        echo $row["username"];
 					        echo '</div>';
 
+					       
+
+
 					        echo '</div>';
+
 					    }
 					} else {
 					    echo "0 results";
@@ -53,9 +60,6 @@
 
 	</div>
 
-	<script>
-		
-	</script>
 
 </body>
 </html>

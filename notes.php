@@ -1,4 +1,5 @@
 <?php include 'includes/session.php'; ?>
+<?php include 'includes/addnote.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,55 +22,52 @@
 		<?php include 'includes/sidenav.php'; ?>
 
 		<div id="add-note-container">
-			<textarea name="notedata" class="add-note-tarea" placeholder="Write a note"></textarea><br>
-			<input type="submit" class="save-note-btn" value="Add note">
-		</div>
-
-		<div id="notes-container">
-			<div class="date-time">
-				<?php
-					date_default_timezone_set('Asia/Kolkata');
-					$date = date('d F Y', time())." at ";
-					$time = date('h:i a', time());
-					echo $date_time = $date.''.$time;
-				?>
-			</div>
-			<div class="main-post">this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro. this is my first note bro.</div>
-
+			<?php echo @$error; ?>
+			<form action="" method="POST">
+				<textarea name="note_txt" class="add-note-tarea" placeholder="Write a note"></textarea><br>
+				<input type="submit" name="add_note" class="save-note-btn" value="Add note">	
+			</form>
 			
-		<!--	
-			<div class="delete-btn-container">
-				<input type="submit" class="delete-btn" value="Delete note">
-			</div>
-		-->
 		</div>
-		<div id="dta" style="border: 1px solid black;"></div>
+			
+				<?php
 
+					$fetch_notes = "SELECT note_id, note_txt, note_date_time FROM notes ORDER BY note_id DESC";
+					$result = mysqli_query($conn, $fetch_notes);
+
+
+					if (mysqli_num_rows($result) > 0) {
+					    // output data of each row
+					    while($row = mysqli_fetch_assoc($result)) {
+
+					    	echo '<div id="notes-container">';
+
+
+
+					    	//getting fullname
+					    	echo '<div class="date-time">';
+					        echo $row["note_date_time"];
+					        echo '</div>';
+
+					        //getting username
+					        echo '<div class="main-post">';
+					        echo $row["note_txt"];
+					        echo '</div>';
+
+					       
+
+					        echo '</div>';
+
+					    }
+					} else {
+					    echo "0 results";
+					}
+
+					mysqli_close($conn);
+
+				?>
 
 	</div>
-		
-	<script>
-
-	$(document).ready(function() {
-		$('.save-note-btn').click(function() {
-			if (!$('.add-note-tarea').val() == '') {
-				var note = $('.add-note-tarea').val();
-				var datetime = '<?php echo $date_time ?>';
-				$.ajax({
-		            type: 'POST',
-		            url: 'ak.php',
-		            data: {note_key:note, datetime_key:datetime},
-		            success: function(data, status) {
-		                $('.add-note-tarea').val('');
-		            }
-	        	});
-			} else {
-				alert("Please enter name");
-			}	
-	    });
-	});
-
-	</script>
 
 </body>
 </html>

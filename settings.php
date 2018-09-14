@@ -1,6 +1,27 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
 
+<?php
+
+if(isset($_POST["upload"])){
+  @$target = "images/".basename($_FILE['image']['name']);
+
+  $db = mysqli_connect("localhost","root","","test");
+  @$image = $_FILE['image']['name'];
+
+  $sql = "UPDATE users SET propic='$image' WHERE username='$user_name'";
+  mysqli_query($db, $sql) or die("some error bitch");
+
+  if(move_uploaded_file(@$_FILE['image']['tmp_name'], $target)){
+    echo $msg = "image uploaded success";
+  } else {
+    echo $msg = "some error occured whgile uploaidng";
+  }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +41,22 @@
   
   <?php include 'includes/sidenav.php' ?>
 
+
+
 	<div class="settings-container">
+
+  <div class="upload-photo-container">
+    <div class="upload-label">Upload picture</div>
+    <div class="frm-container">
+
+      <form action="" method="POST" enctype="multipart/form-data">
+        <label class="file-label">Choose file<input type="file" name="image" size="60"></label>
+        <input type="submit" name="upload" value="Upload" class="upload-btn">
+      </form>
+
+    </div>
+  </div>
+
 	<form action="" method="POST">
   	<table border="0">
   	  <tr>
