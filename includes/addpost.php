@@ -2,12 +2,11 @@
 
 <?php
 
-
 $host = "localhost";
 $user = "root";
 $pass = "";
 $dbname = "test";
-$tbname = "notes";
+$tbname = "posts";
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
@@ -17,35 +16,33 @@ if (!$conn) {
 
 $note_txt = $error = ""; // variables to store error message
 
-if (isset($_POST["add_note"])) {
-  if (empty($_POST["note_txt"])) {
-    $error = '<div class="error">Please write a note</div>';
+if (isset($_POST["add_post"])) {
+  if (empty($_POST["post_txt"])) {
+    $error = '<div class="error">Please write a post</div>';
   } else {
     // define $username and $password
-    $note_txt = $_POST["note_txt"];
+    $post_txt = $_POST["post_txt"];
     
     // to protect with MySQL injection
-    $note_txt = stripslashes($note_txt);
+    $post_txt = stripslashes($post_txt);
 
-    $note_txt = mysqli_real_escape_string($conn, $note_txt);
-
+    $post_txt = mysqli_real_escape_string($conn, $post_txt);
 
 
 
     date_default_timezone_set('Asia/Kolkata');
     $date = date('d F Y', time())." at ";
     $time = date('h:i a', time());
-    echo $date_time = $date.''.$time;
-
+    echo $post_date_time = $date.''.$time;
 
 
 
     // SQL query to fetch information of users and finds the user match
-    $query = "INSERT INTO notes (note_id, user_name, note_txt, note_date_time) VALUES(NULL, '$user_name', '$note_txt', '$date_time')";
+    $query = "INSERT INTO posts (post_id, full_name, user_name, post_txt, post_date_time) VALUES(NULL, '$full_name', '$user_name', '$post_txt', '$post_date_time')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-      header("location: notes.php"); //redirecting to other page
+      header("location: home.php"); //redirecting to other page
     } else {
       echo "something went wrong";
     }

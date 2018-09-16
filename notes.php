@@ -1,6 +1,7 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/addnote.php'; ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +23,10 @@
 		<?php include 'includes/sidenav.php'; ?>
 
 		<div id="add-note-container">
-			<?php echo @$error; ?>
+		
 			<form action="" method="POST">
 				<textarea name="note_txt" class="add-note-tarea" placeholder="Write a note"></textarea><br>
-				<input type="submit" name="add_note" class="save-note-btn" value="Add note">	
+				<input type="submit" name="add_note" class="save-note-btn" value="Save"><?php echo @$error; ?>
 			</form>
 			
 		</div>
@@ -43,19 +44,25 @@
 					    	echo '<div id="notes-container">';
 
 
-
-					    	//getting fullname
+					    	//getting date-time
 					    	echo '<div class="date-time">';
 					        echo $row["note_date_time"];
 					        echo '</div>';
 
-					        //getting username
+					        //getting post
 					        echo '<div class="main-post">';
 					        echo $row["note_txt"];
 					        echo '</div>';
 
-					       
+					        echo'
 
+					        <form action="" method="POST">
+					        	<input type="submit" name="note_delete_btn" class="note-delete-btn" value="Delete">
+					        </form>
+
+					        ';
+					       
+					       
 					        echo '</div>';
 
 					    }
