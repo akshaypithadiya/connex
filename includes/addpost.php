@@ -17,7 +17,8 @@ if (!$conn) {
 $note_txt = $error = ""; // variables to store error message
 
 if (isset($_POST["add_post"])) {
-  if (empty($_POST["post_txt"])) {
+  $post_txt = rtrim($_POST["post_txt"]);
+  if (empty($post_txt)) {
     $error = '<div class="error">Please write a post</div>';
   } else {
     // define $username and $password

@@ -24,7 +24,7 @@
 				
 				<?php
 
-					$members_names = "SELECT fname, lname, username, email, about, city FROM users";
+					$members_names = "SELECT fname, lname, username, email, about, city, propic FROM users";
 					$result = mysqli_query($conn, $members_names);
 
 
@@ -34,17 +34,34 @@
 
 					    	echo '<div class="members-container">';
 
-					    	//getting fullname
-					    	echo '<div class="full-name">';
-					        echo $row["fname"]." ".$row["lname"];
-					        echo '</div>';
+					    	echo '<div class="members-container-header">';
 
-					        //getting username
-					        echo '<div class="user-name">';
-					        echo $row["username"];
-					        echo '</div>';
+					    		//getting fullname
+						    	echo '<a href="images/'.$row["propic"].'"target="_blank">';
+								echo '<img src="images/'.$row["propic"].'"id="pro-pic">';
+								echo '</a>';
 
-					       
+						    	echo '<div class="full-name">';
+						        echo $row["fname"]." ".$row["lname"];
+						        echo '</div>';
+						        echo '<br>';
+						        echo '<div class="user-name">';
+						        echo $row["username"];
+						        echo '</div>';
+
+					    	echo '</div>';
+
+					    	echo '<div class="members-container-body">';
+
+						    	echo '<div class="about" style="margin-bottom: 6px;">';
+						    		echo '<span class="v">About<span>&nbsp;&nbsp;-&nbsp;&nbsp;'.'<span class="d">'.$row["about"].'</span>';
+						    	echo '</div>';
+
+						    	echo '<div class="cur-city">';
+						    		echo '<span class="v">Location<span>&nbsp;&nbsp;-&nbsp;&nbsp;'.'<span class="d">'.$row["city"].'</span>';
+						    	echo '</div>';
+
+					    	echo '</div>';
 
 
 					        echo '</div>';

@@ -18,6 +18,12 @@
 	$total_notes = @$row['total_notes'];
 
 
+	//getting profile picture
+	$pro_pic = mysqli_query($conn, "SELECT propic FROM users WHERE username='$user_name'");
+	$row = mysqli_fetch_assoc($pro_pic);
+	$display_pic = @$row['propic'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +70,11 @@
 		<?php include 'includes/sidenav.php'; ?>
 
 		<div class="pro-container">
-			<!--
-			<a href="images/default.png" target="_blank">
-				<img src="images/default.png" id="pro-pic">
+			
+			<?php echo '<a href="images/'.$display_pic.'"target="_blank">' ?>
+				<?php echo '<img src="images/'.$display_pic.'"id="pro-pic">'; ?>
 			</a>
-			-->
+			
 			<div class="user-info">
 				<table cellpadding="5" border="0">
 					<col width="100">

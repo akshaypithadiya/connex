@@ -1,26 +1,46 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
 
+
 <?php
 
-if(isset($_POST["upload"])){
-  @$target = "images/".basename($_FILE['image']['name']);
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "test";
+$tbname = "images";
 
-  $db = mysqli_connect("localhost","root","","test");
-  @$image = $_FILE['image']['name'];
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-  $sql = "UPDATE users SET propic='$image' WHERE username='$user_name'";
-  mysqli_query($db, $sql) or die("some error bitch");
-
-  if(move_uploaded_file(@$_FILE['image']['tmp_name'], $target)){
-    echo $msg = "image uploaded success";
-  } else {
-    echo $msg = "some error occured whgile uploaidng";
-  }
-
+if (!$conn) {
+  die("Connection failed: ".mysqli_connect_error());
 }
 
+  // Initialize message variable
+  $img_up_error = "";
+
+  // If upload button is clicked ...
+  if (isset($_POST['upload'])) {
+    // Get image name
+    $image = $_FILES['image']['name'];
+    // image file directory
+    $target = "images/".basename($image);
+
+    $sql = "UPDATE users SET propic='$image' WHERE username='$user_name'";
+    // execute query
+    mysqli_query($conn, $sql);
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        header("location: profile.php");
+    }else{
+      echo $img_up_error = "Failed to upload image";
+    }
+  }
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -49,10 +69,14 @@ if(isset($_POST["upload"])){
     <div class="upload-label">Upload picture</div>
     <div class="frm-container">
 
+
+
       <form action="" method="POST" enctype="multipart/form-data">
         <label class="file-label">Choose file<input type="file" name="image" size="60"></label>
         <input type="submit" name="upload" value="Upload" class="upload-btn">
       </form>
+
+
 
     </div>
   </div>

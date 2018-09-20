@@ -53,8 +53,8 @@ table{
 }
 
 #pro-pic{
-	width: 85px;
-	height: 85px;
+	width: 90px;
+	height: 90px;
 	//border: 1px solid #d7d8db;
 	border-radius: 50%;
 	object-fit: cover;
@@ -81,7 +81,7 @@ table{
 }
 
 .post-container-pro-header{
-	padding: 15px;
+	padding: 10px 10px 10px 15px;
 	border-bottom: 1px solid #d7d8db;
 }
 
