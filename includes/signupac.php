@@ -15,6 +15,7 @@ if (isset($_POST["submit"])) {
   if (empty($fname) || empty($lname) || empty($email) || empty($username) || empty($password)) {
     $error = '<div class="error">Enter all the required details</div>';
   } else {
+
     // define $username and $password
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
@@ -34,7 +35,6 @@ if (isset($_POST["submit"])) {
     $email = mysqli_real_escape_string($conn, $email);
     $username = strtolower(mysqli_real_escape_string($conn, $username));
     $password = mysqli_real_escape_string($conn, $password);
-
 
     // checking if username already exist
     $name = "SELECT username from users WHERE username='$username'";

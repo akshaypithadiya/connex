@@ -90,7 +90,7 @@
 
 					    }
 					} else {
-					    echo "0 results";
+					    echo '<div class="zero-result">There are no notes</div>';
 					}
 
 					mysqli_close($conn);

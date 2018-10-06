@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
-
+<?php include 'includes/settingsup.php'; ?>
 
 <?php
 
@@ -16,12 +16,11 @@ if (!$conn) {
   die("Connection failed: ".mysqli_connect_error());
 }
 
-  // Initialize message variable
-  $img_up_error = "";
+  $img_up_error = ""; // declare error variable
 
-  // If upload button is clicked ...
+  // if upload button is clicked
   if (isset($_POST['upload'])) {
-    // Get image name
+    // get image name
     $image = $_FILES['image']['name'];
     // image file directory
     $target = "images/".basename($image);
@@ -38,8 +37,6 @@ if (!$conn) {
   }
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -88,10 +85,17 @@ if (!$conn) {
   	  	  <label>Name</label>
   	  	</td>
   	  	<td>
-  	  	  <input type="text" name="fname" class="fname" value="<?php echo $f_name; ?>" autocomplete="off">
-          <input type="text" name="lname" class="lname" value="<?php echo $l_name; ?>" autocomplete="off">
+  	  	  <span class="full-name"><?php echo $full_name; ?></span>
   	  	</td>
   	  </tr>
+      <tr>
+        <td class="label">
+          <label>Username</label>
+        </td>
+        <td>
+          <span class="full-name"><?php echo $user_name; ?></span>
+        </td>
+      </tr>
   	  <tr>
   	  	<td class="label">
   	  	  <label>About you</label>
@@ -118,7 +122,7 @@ if (!$conn) {
   	  </tr>
   	  <tr>
   	  	<td colspan="2" class="label">
-  	  	  <input type="submit" class="save-btn" value="Save changes">
+  	  	  <input type="submit" class="save-btn" name="save" value="Save changes">
   	  	</td>
   	  </tr>
       <tr>

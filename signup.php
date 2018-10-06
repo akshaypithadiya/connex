@@ -12,9 +12,11 @@
 <div id="header"></div>
 
 <div id="container">
+
     <div class="container-header">
       Signup
     </div> 
+
     <div class="container-body">
       <?php echo $error; ?>
       <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
@@ -29,6 +31,7 @@
         <input type="submit" value="Log in" class="button">
       </a>
     </div>
+    
   </div>
 
 </body>

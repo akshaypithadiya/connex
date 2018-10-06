@@ -47,9 +47,8 @@
 		<?php
 
 
-			$fetch_posts = "SELECT full_name, post_id, post_txt, post_date_time FROM posts ORDER BY post_id DESC";
+			$fetch_posts = "SELECT full_name, post_id, propic, post_txt, post_date_time FROM posts ORDER BY post_id DESC";
 			$result = mysqli_query($conn, $fetch_posts);
-
 
 			if (mysqli_num_rows($result) > 0) {
 			    // output data of each row
@@ -58,6 +57,7 @@
 			    	echo '<div id="post-container">'; // main post container start
 
 			    	echo '<div class="post-container-header">'; // header start
+
 
 				    	//getting full-name
 				    	echo '<div class="full-name-con">';
@@ -77,9 +77,9 @@
 			        echo '</div>';
 
 
-			        echo '<div class="footer">';
-			        echo '<i class="fas fa-heart"></i>';
-			        echo '</div>';			        
+			        //echo '<div class="footer">';
+			        //echo '<i class="fas fa-heart"></i>';
+			        //echo '</div>';			        
 			       
 
 			    	echo '</div>'; //main post container close

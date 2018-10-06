@@ -30,8 +30,14 @@ if (isset($_POST["submit"])) {
 
 			// SQL query to fetch information of users and finds the user match
 			// $user_name taken from userinfo.php
-			$sql = "DELETE FROM $tbname WHERE username='$user_name' AND password='$password'";
-			$result = mysqli_query($conn, $sql);
+			$del_user = "DELETE FROM users WHERE username='$user_name' AND password='$password'";
+			$result = mysqli_query($conn, $del_user);
+
+			$del_notes = "DELETE FROM notes WHERE user_name='$user_name'";
+			$result = mysqli_query($conn, $del_notes);
+
+			$del_posts = "DELETE FROM posts WHERE user_name='$user_name'";
+			$result = mysqli_query($conn, $del_posts);
 
 			if ($result) {
 			    header("location: index.php");
