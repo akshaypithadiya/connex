@@ -47,6 +47,10 @@
     margin-bottom: 7px;
 }
 
+.add-post-tarea:focus{
+    border: 1px solid #5181b8;
+}
+
 .add-post-btn{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     background-color: #5181b8;
@@ -76,8 +80,7 @@
 
 .full-name-con{
     font-size: 13px;
-    color: #4a76a8;
-    font-weight: bold;
+    color: #285473;
 }
 
 .date-time-con{
@@ -103,4 +106,46 @@
     padding: 9px 24px;
     border-radius: 4px;
     background: #fdefe9;
+}
+
+.comment-section{
+    border-top: 1px solid #d7d8db;
+    padding: 5px 15px 10px 15px; 
+}
+
+.add-comment-field{
+    border-top: 1px solid #d7d8db;
+    padding: 10px 15px 5px 15px;   
+}
+
+
+
+.add-cmnt-inp{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    width: 403px;
+    padding: 10px 8px;
+    font-size: 13px;
+    color: #424242;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 7px;
+    margin-right: 5px;
+}
+
+.add-cmnt-inp:focus{
+     border: 1px solid #5181b8;
+}   
+
+.add-cmnt-btn{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background-color: #5181b8;
+    color: #FFFFFF;
+    border: 1px solid #5181b8;
+    border-radius: 4px;
+    padding: 9px 15px;
+    font-size: 12.5px;
+    outline: none;
+    cursor: pointer;
 }

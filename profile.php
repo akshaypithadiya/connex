@@ -1,5 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
+<?php include 'includes/deletepst.php'; ?>
 
 <?php
 	//getting total posts
@@ -34,11 +35,8 @@
 	----- */
 
 	.svg-icon {
-	  width: 13px;
-	  height: 13px;
-	  float: right;
-	  margin-right: -1px;
-	  cursor: pointer;
+	  width: 12px;
+	  height: 12px;
 	}
 
 	.svg-icon path,
@@ -50,6 +48,16 @@
 	.svg-icon circle {
 	  stroke: #4691f6;
 	  stroke-width: 1;
+	}
+
+	.del-btn{
+		float: right;
+		padding: 0px;
+		cursor: pointer;
+		outline: none;
+		background: transparent;
+		border: 0px;
+		margin-right: -1px;
 	}
 
 	</style>
@@ -110,19 +118,28 @@
 
 		<?php
 			$fetch_posts = "SELECT full_name, post_id, post_txt, post_date_time FROM posts WHERE user_name='$user_name' ORDER BY post_id DESC";
+			
 			$result = mysqli_query($conn, $fetch_posts);
 			if (mysqli_num_rows($result) > 0) {
 			    // output data of each row
 			    while($row = mysqli_fetch_assoc($result)) {
+			    	$pstid = $row["post_id"];
 			    	echo '<div id="post-container-pro">';
 			    	echo '<div class="post-container-pro-header">';
 
-			    	echo '<svg class="svg-icon" viewBox="0 0 20 20">
+	
+
+			    	echo '<form action="" method="POST">';
+			    	echo '<input type="hidden" name="pstid" value="'.$pstid.'">';
+					echo '<button type="submit" name="del" class="del-btn"><svg class="svg-icon" viewBox="0 0 20 20">
 							<path fill="none" d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08
 							c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469
 							c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304
 							c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"></path>
-						</svg>';
+						</svg></button>';
+					echo '</form>';
+
+
 
 				    	//getting date-time
 				    	echo '<div class="full-name">';
@@ -141,7 +158,7 @@
 			        echo '</div>';
 			    }
 			} else {
-			    echo "0 results";
+			    echo '<div class="zero-result">There are no posts</div>';
 			}
 			mysqli_close($conn);
 		?>

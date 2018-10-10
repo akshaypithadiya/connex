@@ -32,10 +32,9 @@
 
 .full-name{
 	font-size: 13px;
-	color: #4a76a8;
+	color: #424242;
 	//border: 1px solid black;
 	display: inline-block;
-	font-weight: bold;
 }
 
 .user-name{

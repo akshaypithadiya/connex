@@ -1,29 +1,34 @@
+<?php include 'includes/userinfo.php'; ?>
+
 <?php
 
-$host="localhost"; // Host name 
-$username=""; // Mysql username 
-$password=""; // Mysql password 
-$db_name="test"; // Database name 
-$tbl_name="posts"; // Table name 
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "test";
 
-// Connect to server and select databse.
-$conn = mysqli_connect("$host", "$username", "$password", "$db_name")or die("cannot connect"); 
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// get value of id that sent from address bar 
-$id=$_GET['id'];
-
-// Delete data in mysql from row that has this id 
-$sql="DELETE FROM $tbl_name WHERE id='$id'";
-$result=mysqli_query($conn,$sql);
-
-// if successfully deleted
-if($result){
-echo "Deleted Successfully";
-echo "<BR>";
-echo "<a href='profile.php'>Back to main page</a>";
+if (!$conn) {
+  die("Connection failed: ".mysqli_connect_error());
 }
 
-else {
-echo "ERROR";
+if (isset($_POST["del"])) {
+  $the_pstid = $_POST["pstid"];
+
+    // SQL query to fetch information of users and finds the user match
+    $query = "DELETE FROM posts WHERE post_id='$the_pstid'";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+      header("location: profile.php"); //redirecting to other page
+    } else {
+      echo "something went wrong";
+    }
+
+    mysqli_close($conn); // closing connection
+
 }
-?> 
+   
+
+?>

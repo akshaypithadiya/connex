@@ -1,5 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/addpost.php'; ?>
+<?php include 'includes/addcomment.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -13,18 +14,14 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style>
-	.fa-heart{
-		font-size: 16px;
-		color: #757575;
-		cursor: pointer;
-	}
-
-	.fa-heart:hover, .fa-heart.green { color: #f03048; }
-
-	.footer{
-		border-top: 1px solid #d7d8db;
-		padding: 10px 15px 10px 15px; 
-	}
+		.cmntr-name{
+			font-size: 12px;
+			color: #285473;
+		}
+		.cmntr-msg{
+			font-size: 12px;
+			color: #616161;
+		}
 	</style>
 </head>
 <body>
@@ -35,19 +32,18 @@
 
 		<?php include 'includes/sidenav.php'; ?>
 
-		<div id="right-nav"></div>
-		
 		<div id="add-post-container">
 			<form action="" method="POST">
-				<textarea name="post_txt" class="add-post-tarea" placeholder="Write a post"></textarea><br>
+				<textarea name="post_txt" class="add-post-tarea" maxlength="200" placeholder="Write a post"></textarea><br>
 				<input type="submit" name="add_post" class="add-post-btn" value="Post"><?php echo @$error; ?>
 			</form>
 		</div>
 
+
 		<?php
 
 
-			$fetch_posts = "SELECT full_name, post_id, propic, post_txt, post_date_time FROM posts ORDER BY post_id DESC";
+			$fetch_posts = "SELECT full_name, post_id, post_txt, post_date_time FROM posts ORDER BY post_id DESC";
 			$result = mysqli_query($conn, $fetch_posts);
 
 			if (mysqli_num_rows($result) > 0) {
@@ -76,11 +72,38 @@
 			        	echo $row["post_txt"];
 			        echo '</div>';
 
+			       	$get_the_post_id = $row["post_id"];
 
-			        //echo '<div class="footer">';
-			        //echo '<i class="fas fa-heart"></i>';
-			        //echo '</div>';			        
-			       
+			        echo '<div class="comment-section">';
+
+			        $fetch_cmnts = "SELECT full_name, cmnt_txt FROM comments WHERE post_id='$get_the_post_id'";
+					$cmnt_result = mysqli_query($conn, $fetch_cmnts);
+
+					while($row = mysqli_fetch_assoc($cmnt_result)) {
+
+
+							echo '<div class="all-comments">';
+								echo '<span class="cmntr-name">'.$row["full_name"];'</span>';
+								echo '&nbsp;&nbsp;';
+								echo '<span class="cmntr-msg">'.$row["cmnt_txt"];'</span>';
+							echo '</div>';
+
+			    	}
+
+
+
+
+			        echo '</div>';
+
+			        echo '<div class="add-comment-field">';
+			        echo '
+			        	  <form action="" method="POST">
+			        	     <input type="hidden" name="the_post_id" value="'.$get_the_post_id.'">
+						     <input type="text" name="cmnt_txt" autocomplete="off" maxlength="40" class="add-cmnt-inp" placeholder="Write a comment">
+				             <input type="submit" name="add_cmnt" class="add-cmnt-btn" value="Post">
+		 	              </form>';
+			        echo '</div>';
+
 
 			    	echo '</div>'; //main post container close
 
@@ -96,10 +119,5 @@
 
 	</div>
 
-<script type="text/javascript">
-	$(".fa-heart").click(function () {
-   $(this).toggleClass("green");
-});
-</script>
 </body>
 </html>

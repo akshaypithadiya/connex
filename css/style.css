@@ -50,7 +50,7 @@ input[type=text], input[type=password]{
 }
 
 input[type=text]:focus, input[type=password]:focus{
-    border: 1px solid #B0BEC5;
+    border: 1px solid #5181b8;
 }
 
 .button{
