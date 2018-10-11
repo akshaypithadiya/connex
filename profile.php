@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
-<?php include 'includes/deletepst.php'; ?>
+<?php include 'includes/deletepost.php'; ?>
 
 <?php
 	//getting total posts
@@ -60,6 +60,20 @@
 		margin-right: -1px;
 	}
 
+	.comment-section{
+    	border-top: 1px solid #d7d8db;
+    	padding: 5px 15px 10px 15px; 
+	}
+
+	.cmntr-name{
+		font-size: 12px;
+		color: #285473;
+	}
+	
+	.cmntr-msg{
+		font-size: 12px;
+		color: #616161;
+	}
 	</style>
 </head>
 <body>
@@ -153,7 +167,31 @@
 			    	//getting post
 			        echo '<div class="main-post">';
 			        echo $row["post_txt"];
-			        echo '</div>';			        
+			        echo '</div>';	
+
+
+			        $get_the_post_id = $row["post_id"];
+
+			        echo '<div class="comment-section">';
+
+			        $fetch_cmnts = "SELECT full_name, cmnt_txt FROM comments WHERE post_id='$get_the_post_id'";
+					$cmnt_result = mysqli_query($conn, $fetch_cmnts);
+
+					while($row = mysqli_fetch_assoc($cmnt_result)) {
+
+
+							echo '<div class="all-comments">';
+								echo '<span class="cmntr-name">'.$row["full_name"];'</span>';
+								echo '&nbsp;&nbsp;';
+								echo '<span class="cmntr-msg">'.$row["cmnt_txt"];'</span>';
+							echo '</div>';
+
+			    	}
+
+
+			        echo '</div>';
+
+
 			       
 			        echo '</div>';
 			    }

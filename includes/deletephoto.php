@@ -14,14 +14,17 @@ if (!$conn) {
 }
 
 if (isset($_POST["del"])) {
-  $the_pstid = $_POST["pstid"];
+  $the_photoid = $_POST["photoid"];
 
     // SQL query to fetch information of users and finds the user match
-    $query = "DELETE FROM posts WHERE post_id='$the_pstid'";
+    $query = "DELETE FROM photos WHERE photo_id='$the_photoid'";
     $result = mysqli_query($conn, $query);
 
+    $cmnt_del_query = "DELETE FROM photocmnts WHERE photo_id='$the_photoid'";
+    $result = mysqli_query($conn, $cmnt_del_query);
+
     if ($result) {
-      header("location: profile.php"); //redirecting to other page
+      header("location: photos.php"); //redirecting to other page
     } else {
       echo "something went wrong";
     }

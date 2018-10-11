@@ -1,5 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/addnote.php'; ?>
+<?php include 'includes/deletenote.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
 
 <!DOCTYPE html>
@@ -14,28 +15,35 @@
 	<link rel="stylesheet" type="text/css" href="css/notes.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 	<style>
+	/* -----
+	SVG Icons - svgicons.sparkk.fr
+	----- */
+
 	.svg-icon {
-		width: 1.1em;
-	  	height: 1.1em;
-	  	-webkit-transform: rotate(90deg);
-	   	-moz-transform: rotate(90deg);
-	    -ms-transform: rotate(90deg);
-	    -o-transform: rotate(90deg);
-	    transform: rotate(90deg);
-	    float: right;
-	    cursor: pointer;
-	    margin-top: -15px;
+	  width: 12px;
+	  height: 12px;
 	}
 
 	.svg-icon path,
 	.svg-icon polygon,
 	.svg-icon rect {
-		fill: #757575;
+	  fill: #757575;
 	}
 
 	.svg-icon circle {
-		stroke: #4691f6;
-		stroke-width: 1;
+	  stroke: #4691f6;
+	  stroke-width: 1;
+	}
+
+	.del-btn{
+		float: right;
+		padding: 0px;
+		cursor: pointer;
+		outline: none;
+		background: transparent;
+		border: 0px;
+		margin-right: -2px;
+		margin-top: -14px;
 	}
 	</style>
 </head>
@@ -50,7 +58,7 @@
 		<div id="add-note-container">
 		
 			<form action="" method="POST">
-				<textarea name="note_txt" class="add-note-tarea" placeholder="Write a note"></textarea><br>
+				<textarea name="note_txt" class="add-note-tarea" maxlength="200" placeholder="Write a note"></textarea><br>
 				<input type="submit" name="add_note" class="save-note-btn" value="Save"><?php echo @$error; ?>
 			</form>
 			
@@ -65,7 +73,7 @@
 					if (mysqli_num_rows($result) > 0) {
 					    // output data of each row
 					    while($row = mysqli_fetch_assoc($result)) {
-
+					    	$noteid = $row["note_id"];
 					    	echo '<div id="notes-container">';
 
 					    	echo '<div class="notes-container-header">';
@@ -74,9 +82,15 @@
 						        echo $row["note_date_time"];
 						        echo '</div>';
 
-						        echo'<svg class="svg-icon" viewBox="0 0 20 20">
-									<path fill="none" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
-									</svg>';
+						    	echo '<form action="" method="POST">';
+						    	echo '<input type="hidden" name="noteid" value="'.$noteid.'">';
+								echo '<button type="submit" name="del" class="del-btn"><svg class="svg-icon" viewBox="0 0 20 20">
+										<path fill="none" d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08
+										c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469
+										c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304
+										c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"></path>
+									</svg></button>';
+								echo '</form>';
 
 					    	echo '</div>';
 

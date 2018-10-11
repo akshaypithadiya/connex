@@ -73,6 +73,12 @@ td{
     margin-top: 3px;
 }
 
+.about:focus,
+.city:focus,
+.email:focus{
+    border: 1px solid #5181b8;
+}
+
 .save-btn{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     margin-left: 143px;

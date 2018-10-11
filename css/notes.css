@@ -29,6 +29,10 @@
     margin-bottom: 7px;
 }
 
+.add-note-tarea:focus{
+    border: 1px solid #5181b8;
+}
+
 .save-note-btn{
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     background-color: #5181b8;
@@ -42,6 +46,7 @@
     float: left;
 
 }
+
 
 #notes-container{
 	width: 500px;

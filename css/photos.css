@@ -14,15 +14,15 @@
 	border-bottom: 1px solid #d7d8db;
 }
 
-.user-name{
+.date-time-con{
 	font-size: 12px;
 	color: #9e9e9e;
+	margin-top: 5px;
 }
 
 .name{
 	font-size: 13px;
-	font-weight: bold;
-	color: #4a76a8;
+	color: #285473;
 }
 
 .photos-container-body{
