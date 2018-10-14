@@ -109,7 +109,7 @@
 
 			    }
 			} else {
-			    echo "0 results";
+			    echo '<div class="zero-result">There are no posts</div>';
 			}
 
 			mysqli_close($conn);

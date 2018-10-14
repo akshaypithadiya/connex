@@ -1,7 +1,7 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
 <?php include 'includes/deletephoto.php'; ?>
-<?php include 'includes/photoaddcomment.php'; ?>
+<?php include 'includes/addcommentphoto.php'; ?>
 
 <?php
 
@@ -105,8 +105,6 @@ if (!$conn) {
 		color: #424242;
 	}
 
-
-
 	.svg-icon {
 	  width: 12px;
 	  height: 12px;
@@ -160,41 +158,39 @@ if (!$conn) {
 	}
 
 	.add-comment-field{
-    border-top: 1px solid #d7d8db;
-    padding: 10px 15px 5px 15px;   
-}
+	    border-top: 1px solid #d7d8db;
+	    padding: 10px 15px 5px 15px;   
+	}
 
+	.add-cmnt-inp{
+	    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	    width: 403px;
+	    padding: 10px 8px;
+	    font-size: 13px;
+	    color: #424242;
+	    border: 1px solid #E0E0E0;
+	    border-radius: 4px;
+	    outline: none;
+	    box-sizing: border-box;
+	    margin-bottom: 7px;
+	    margin-right: 5px;
+	}
 
+	.add-cmnt-inp:focus{
+	     border: 1px solid #5181b8;
+	}   
 
-.add-cmnt-inp{
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    width: 403px;
-    padding: 10px 8px;
-    font-size: 13px;
-    color: #424242;
-    border: 1px solid #E0E0E0;
-    border-radius: 4px;
-    outline: none;
-    box-sizing: border-box;
-    margin-bottom: 7px;
-    margin-right: 5px;
-}
-
-.add-cmnt-inp:focus{
-     border: 1px solid #5181b8;
-}   
-
-.add-cmnt-btn{
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background-color: #5181b8;
-    color: #FFFFFF;
-    border: 1px solid #5181b8;
-    border-radius: 4px;
-    padding: 9px 15px;
-    font-size: 12.5px;
-    outline: none;
-    cursor: pointer;
-}
+	.add-cmnt-btn{
+	    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	    background-color: #5181b8;
+	    color: #FFFFFF;
+	    border: 1px solid #5181b8;
+	    border-radius: 4px;
+	    padding: 9px 15px;
+	    font-size: 12.5px;
+	    outline: none;
+	    cursor: pointer;
+	}
 
 	</style>
 </head>

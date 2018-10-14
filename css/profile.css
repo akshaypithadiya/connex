@@ -116,15 +116,3 @@ table{
     color: #424242;
     margin-top: 10px;
 }
-
-.zero-result{
-    font-size: 13px;
-    text-align: center;
-    border: 1px solid #d7d8db;
-    max-width: 470px;
-    margin: 0px auto;
-    padding: 15px;
-    border-radius: 5px;
-    background: #ffffff;
-    color: #424242;
-}

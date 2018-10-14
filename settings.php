@@ -1,6 +1,6 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/userinfo.php'; ?>
-<?php include 'includes/settingsup.php'; ?>
+<?php include 'includes/settingsupdate.php'; ?>
 
 <?php
 

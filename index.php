@@ -19,7 +19,7 @@
     
     <div class="container-body">
       <?php echo $error; ?>
-      <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+      <form action="" method="POST">
         <input type="text" name="username" placeholder="Username" value="<?php echo @$_POST['username']; ?>" maxlength="25" autocomplete="off">
         <input type="password" name="password" placeholder="Password" maxlength="25" autocomplete="off">
         <input type="submit" name="submit" value="Log in" class="button">
