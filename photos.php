@@ -269,7 +269,7 @@ if (!$conn) {
 
 							echo '<div class="all-comments">';
 								echo '<span class="cmntr-name">'.$row["full_name"];'</span>';
-								echo '&nbsp;&nbsp;';
+								echo '&nbsp;-&nbsp;';
 								echo '<span class="cmntr-msg">'.$row["cmnt_txt"];'</span>';
 							echo '</div>';
 
