@@ -1,3 +1,32 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Nov 20, 2020 at 10:19 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `test`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
@@ -5,6 +34,20 @@ CREATE TABLE `comments` (
   `cmnt_txt` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `full_name`, `cmnt_txt`) VALUES
+(58, 50, 'Tejas R', 'great :)'),
+(59, 50, 'Omkar P', 'awesome song'),
+(61, 47, 'Akshay Pithadiya', 'yeah');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notes`
+--
 
 CREATE TABLE `notes` (
   `note_id` int(11) NOT NULL,
@@ -13,6 +56,19 @@ CREATE TABLE `notes` (
   `note_date_time` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`note_id`, `user_name`, `note_txt`, `note_date_time`) VALUES
+(44, 'akshay', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \r\n', '17 November 2018 at 02:25 pm'),
+(45, 'akshay', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', '18 November 2018 at 02:25 pm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photocmnts`
+--
 
 CREATE TABLE `photocmnts` (
   `id` int(11) NOT NULL,
@@ -21,6 +77,18 @@ CREATE TABLE `photocmnts` (
   `cmnt_txt` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `photocmnts`
+--
+
+INSERT INTO `photocmnts` (`id`, `photo_id`, `full_name`, `cmnt_txt`) VALUES
+(19, 16, 'Omkar P', 'nice :)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photos`
+--
 
 CREATE TABLE `photos` (
   `photo_id` int(11) NOT NULL,
@@ -30,6 +98,18 @@ CREATE TABLE `photos` (
   `photo_date_time` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`photo_id`, `username`, `full_name`, `photo`, `photo_date_time`) VALUES
+(16, 'akshay', 'Akshay Pithadiya', '8f584da1082ce3e1bfb9dd0a53d4edf0.jpg', '20 November 2020 at 02:17 pm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
 
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
@@ -39,6 +119,20 @@ CREATE TABLE `posts` (
   `post_date_time` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `full_name`, `user_name`, `post_txt`, `post_date_time`) VALUES
+(46, 'Omkar P', 'omkar', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\n', '25 October 2018 at 12:35 am'),
+(47, 'Tejas R', 'tejas', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n', '25 October 2018 at 12:46 am'),
+(50, 'Akshay Pithadiya', 'akshay', 'Hey guys checkout this song by Avicii - \r\nhttps://www.youtube.com/watch?v=IcrbM1l_BoI', '22 November 2018 at 02:08 pm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
 
 CREATE TABLE `users` (
   `id` int(4) NOT NULL,
@@ -52,134 +146,96 @@ CREATE TABLE `users` (
   `propic` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `users`
+--
 
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `username`, `password`, `about`, `city`, `propic`) VALUES
+(41, 'Akshay', 'Pithadiya', 'akshay.p@gmail.com', 'akshay', '1234', 'Hello, I like listening to music, like code and read books.', 'Mumbai', 'akshay.jpg'),
+(42, 'Omkar', 'P', 'omkar@gmail.com', 'omkar', 'abcd', 'I love EDM Music and i like to code.', 'Mumbai', 'default.png'),
+(43, 'Tejas', 'R', 'tejas@gmail.com', 'tejas', '1234abcd', 'I like making mobile games!', 'Mumbai', 'default.png');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `comments`
+--
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
-
+--
+-- Indexes for table `notes`
+--
 ALTER TABLE `notes`
   ADD PRIMARY KEY (`note_id`);
 
-
+--
+-- Indexes for table `photocmnts`
+--
 ALTER TABLE `photocmnts`
   ADD PRIMARY KEY (`id`);
 
-
+--
+-- Indexes for table `photos`
+--
 ALTER TABLE `photos`
   ADD PRIMARY KEY (`photo_id`);
 
-
+--
+-- Indexes for table `posts`
+--
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
-
+--
+-- Indexes for table `users`
+--
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
 
+--
+-- AUTO_INCREMENT for table `comments`
+--
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
-
+--
+-- AUTO_INCREMENT for table `notes`
+--
 ALTER TABLE `notes`
-  MODIFY `note_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `note_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
-
+--
+-- AUTO_INCREMENT for table `photocmnts`
+--
 ALTER TABLE `photocmnts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
-
+--
+-- AUTO_INCREMENT for table `photos`
+--
 ALTER TABLE `photos`
-  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
-
+--
+-- AUTO_INCREMENT for table `posts`
+--
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
-
+--
+-- AUTO_INCREMENT for table `users`
+--
 ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+COMMIT;
 
-
-
-
-
-
-
-
-
-INSERT INTO `comments` (`id`, `post_id`, `full_name`, `cmnt_txt`) VALUES
-(42, 45, 'Omkar Prabhu', 'Hello, akshay. How are you?'),
-(43, 45, 'Akshay Pithadiya', 'Hi, omkar. i\'m fine'),
-(44, 46, 'Omkar Prabhu', 'this is a random comment xyz abc 123.'),
-(45, 46, 'Akshay Pithadiya', 'hello there.'),
-(46, 44, 'Akshay Pithadiya', 'The inheritance interferes. The confide'),
-(47, 46, 'Tejas Rajpurkar', 'hi. wassup guys'),
-(48, 44, 'Tejas Rajpurkar', 'A hung jet stamps. The chance believes p'),
-(49, 44, 'Tejas Rajpurkar', ' Below the calculated distress participa'),
-(50, 47, 'Tejas Rajpurkar', 'hi'),
-(51, 47, 'Akshay Pithadiya', 'hello tejas'),
-(52, 47, 'Dipesh Pawar', 'hello'),
-(53, 46, 'Dipesh Pawar', 'The ruled theft cooperates inside the co'),
-(54, 44, 'Dipesh Pawar', 'The ruled theft cooperates inside the co'),
-(55, 45, 'Dipesh Pawar', 'The ruled theft cooperates inside the co'),
-(56, 48, 'Dipesh Pawar', 'hello');
-
-
-
-
-INSERT INTO `notes` (`note_id`, `user_name`, `note_txt`, `note_date_time`) VALUES
-(30, 'akshaypithadiya', 'Can the white deterrent swallow the busy fluid? The dead bangs the inheritance. Her numerous vocal searches the alien underneath the pleasant cake. How will the protein rent an unconnected seed?', '25 October 2018 at 12:32 am'),
-(31, 'akshaypithadiya', 'Can the equilibrium defect next to the isolated mother? The gasoline sabotages an addressed trouser. Below any jungle rocks this racket. A speaking salesman responds.', '25 October 2018 at 12:32 am'),
-(32, 'akshaypithadiya', 'Why can\'t an am charge quibble into the signature? The approach sponsors the sighted bucket. The wisest handicap rolls opposite a dreadful turntable. His matched bottle pokes a discriminating gnome.', '25 October 2018 at 12:32 am'),
-(33, 'omkarprabhu', 'The deciding corridor stays the ballot. The test racket gossips above the designate drill. The mug studies a rich wisdom with the spray. The workable servant rages.', '25 October 2018 at 12:38 am'),
-(34, 'omkarprabhu', 'The performance steeps each calm rag before the arcade. The hexadecimal paradox clicks before every drained silicon. The conflicting hangover poses as a lesbian bundle.', '25 October 2018 at 12:38 am'),
-(35, 'omkarprabhu', ' concluded guilt frustrates the protocol. A transmitted cloud issues from the contest. Can her hum trek? The market speaks?', '25 October 2018 at 12:38 am'),
-(36, 'tejasr', 'The lamp lodges the receiver. A mere organ facilitates the warmed east. Her spectacular conduct leans. Each disturbance dedicates the nurse. The dressed concern consults the rude bulb. The standard oc', '25 October 2018 at 12:46 am'),
-(37, 'tejasr', 'The verbose blurb undertakes the crossed debt. A problem orbits over the legitimate piano. The rational starter chases the discovery with a bone radar. A versatile war weds the attached receipt.\r\n', '25 October 2018 at 12:46 am'),
-(39, 'dipeshp', 'The ruled theft cooperates inside the conflicting slot. The substance baffles a collective with an official gasp. A threat apologizes next to a draining beard. A chat sticks the disastrous bicycle acr', '25 October 2018 at 07:13 am'),
-(40, 'dipeshp', 'The floating cave waves over the parody. A topical triumph toes the line. The zone solos outside your each appraisal. The kept remainder deposits a trifle.', '25 October 2018 at 07:13 am'),
-(41, 'dipeshp', 'Inside an ugly doctor overlaps a sounded seed. His virus boils into our background! The pleasure copes beneath a tragedy! A ladder experiments against a copied cable. Past the crisp works the mountain', '25 October 2018 at 07:16 am');
-
-
-
-
-INSERT INTO `photocmnts` (`id`, `photo_id`, `full_name`, `cmnt_txt`) VALUES
-(9, 12, 'Omkar Prabhu', 'The inheritance interferes. The confiden'),
-(10, 11, 'Omkar Prabhu', 'The inheritance interferes. The confiden'),
-(11, 13, 'Akshay Pithadiya', 'The inheritance interferes. The confiden'),
-(12, 12, 'Akshay Pithadiya', 'hello this is a random comment'),
-(13, 11, 'Akshay Pithadiya', 'hello whats good'),
-(14, 14, 'Akshay Pithadiya', 'abc xyz 123 abc xyz'),
-(15, 14, 'Dipesh Pawar', 'Inside an ugly doctor overlaps a sounded'),
-(16, 13, 'Dipesh Pawar', 'Inside an ugly doctor overlaps a sounded'),
-(17, 12, 'Dipesh Pawar', 'Inside an ugly doctor overlaps a sounded'),
-(18, 11, 'Dipesh Pawar', 'Inside an ugly doctor overlaps a sounded');
-
-
-
-
-INSERT INTO `photos` (`photo_id`, `username`, `full_name`, `photo`, `photo_date_time`) VALUES
-(11, 'akshaypithadiya', 'Akshay Pithadiya', 'gb.jpg', '25 October 2018 at 12:30 am'),
-(12, 'akshaypithadiya', 'Akshay Pithadiya', 'image.jpg', '25 October 2018 at 12:30 am'),
-(13, 'omkarprabhu', 'Omkar Prabhu', 'IMG_20161127_162837008.jpg', '25 October 2018 at 12:38 am'),
-(14, 'tejasr', 'Tejas Rajpurkar', 'Screen Shot 2017-12-12 at 19.15.18  Tue, 12 Dec.png', '25 October 2018 at 12:47 am');
-
-
-
-
-INSERT INTO `posts` (`post_id`, `full_name`, `user_name`, `post_txt`, `post_date_time`) VALUES
-(44, 'Akshay Pithadiya', 'akshaypithadiya', 'A patient hopes each desire. The passport dictates on top of the robot! The rose reclaims a generous retrieval beside a researcher. The unset dustbin damages the imperative.', '25 October 2018 at 12:31 am'),
-(45, 'Akshay Pithadiya', 'akshaypithadiya', 'How can the defeat graduate in an incident road? An accustomed rabbit punts. An unsatisfactory governor graduates beside the standardized leak. The arena surrounds a raised flame.', '25 October 2018 at 12:32 am'),
-(46, 'Omkar Prabhu', 'omkarprabhu', 'A librarian fasts? The bean smokes past the passenger. The gene dies throughout the forbidden change. Why can\'t the cute prize revenge a candidate? Your downstairs graces a breathed airport.', '25 October 2018 at 12:35 am'),
-(47, 'Tejas Rajpurkar', 'tejasr', 'The verbose blurb undertakes the crossed debt. A problem orbits over the legitimate piano. The rational starter chases the discovery with a bone radar. A versatile war weds the attached receipt.\r\n', '25 October 2018 at 12:46 am'),
-(48, 'Dipesh Pawar', 'dipeshp', 'The ruled theft cooperates inside the conflicting slot. The substance baffles a collective with an official gasp. A threat apologizes next to a draining beard. A chat sticks the disastrous bicycle acr', '25 October 2018 at 07:13 am');
-
-
-
-
-INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `username`, `password`, `about`, `city`, `propic`) VALUES
-(41, 'Akshay', 'Pithadiya', 'akshay@gmail.com', 'akshaypithadiya', '1234', 'Hello, i\'m akshay. I like to code, read books and listen to music.', 'Mumbai', 'akshay.jpg'),
-(42, 'Omkar', 'Prabhu', 'omkar@gmail.com', 'omkarprabhu', 'abcd', 'Hi, I like to travel, read books, watch movies and listen to music.', 'Badlapur', 'IMG_20161127_162837008.jpg'),
-(43, 'Tejas', 'Rajpurkar', 'tejas@gmail.com', 'tejasr', '1234abcd', 'hi, i like to make games, watch movies and read books on psychology.', 'Dombivli', 'default.png'),
-(44, 'Dipesh', 'Pawar', 'dipesh@gmail.com', 'dipeshp', 'abcd', 'How does a biological dustbin rest upon the trapped differential?', 'Dombivli', 'default.png');
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
