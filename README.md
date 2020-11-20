@@ -1,5 +1,5 @@
 # Connex
-A Portal for college where students can write posts, upload pictures, write comments and connect with other students.
+Portal for college where students can write posts, upload pictures, write comments and connect with other students.
 
 **Home**
 ![home](https://user-images.githubusercontent.com/18662067/57899646-76be3c00-787b-11e9-99db-757767c8a41d.png)
