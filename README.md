@@ -11,7 +11,7 @@ Portal for college where students can write posts, take notes, upload photos, wr
 ![members](https://user-images.githubusercontent.com/18662067/99783401-64901e80-2b40-11eb-91d7-203cbddbc990.png)
 
 **Photos**
-![photos](https://user-images.githubusercontent.com/18662067/99783442-6e198680-2b40-11eb-816d-38f1412cb746.png)
+![photos](https://user-images.githubusercontent.com/18662067/99802808-58b35500-2b5e-11eb-9b17-b81bc6f84296.png)
 
 **Notes**
 ![notes](https://user-images.githubusercontent.com/18662067/99783485-7b367580-2b40-11eb-89c8-866512fc3904.png)
