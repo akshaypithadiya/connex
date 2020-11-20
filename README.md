@@ -1,23 +1,26 @@
 # Connex
-Portal for college where students can write posts, upload pictures, write comments and connect with other students.
+Portal for college where students can write posts, take notes, upload photos, write comments and connect with other students.
 
 **Home**
-![home](https://user-images.githubusercontent.com/18662067/57899646-76be3c00-787b-11e9-99db-757767c8a41d.png)
+![home](https://user-images.githubusercontent.com/18662067/99783203-23980a00-2b40-11eb-8546-30dd9e942dfa.png)
 
 **Profile**
-![profile](https://user-images.githubusercontent.com/18662067/57899694-9ce3dc00-787b-11e9-99a6-d462dd2cc139.png)
+![profile](https://user-images.githubusercontent.com/18662067/99783369-5a6e2000-2b40-11eb-9a4a-49fc29807ea0.png)
 
 **Members**
-![members](https://user-images.githubusercontent.com/18662067/57899730-be44c800-787b-11e9-8fd2-ff456ddfdbf4.png)
+![members](https://user-images.githubusercontent.com/18662067/99783401-64901e80-2b40-11eb-91d7-203cbddbc990.png)
 
 **Photos**
-![photos](https://user-images.githubusercontent.com/18662067/57899783-f815ce80-787b-11e9-831f-8d1418374196.png)
+![photos](https://user-images.githubusercontent.com/18662067/99783442-6e198680-2b40-11eb-816d-38f1412cb746.png)
 
 **Notes**
-![notes](https://user-images.githubusercontent.com/18662067/57899810-0a900800-787c-11e9-8880-b0bf0bebf1e0.png)
+![notes](https://user-images.githubusercontent.com/18662067/99783485-7b367580-2b40-11eb-89c8-866512fc3904.png)
 
 **Settings**
-![settings](https://user-images.githubusercontent.com/18662067/57899818-12e84300-787c-11e9-8600-5a698415e2f4.png)
+![settings](https://user-images.githubusercontent.com/18662067/99783509-838eb080-2b40-11eb-8e24-0ce968c0afe0.png)
 
 **Signup**
-![signup](https://user-images.githubusercontent.com/18662067/57899836-2c898a80-787c-11e9-8986-8e63b6c1e87a.png)
+![register](https://user-images.githubusercontent.com/18662067/99783558-90130900-2b40-11eb-8df6-7a7da0f6d6c0.png)
+
+**Login**
+![login](https://user-images.githubusercontent.com/18662067/99783654-b042c800-2b40-11eb-80c7-27198b7aeef5.png)
