@@ -1,4 +1,4 @@
-# Connex
+# connex
 Portal for college where students can write posts, take notes, upload photos, add comments and connect with other students
 
 **Home**
