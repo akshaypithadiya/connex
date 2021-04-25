@@ -1,5 +1,5 @@
 # connex
-Portal for college where students can connect with each other
+## Portal for college where students can connect with each other
 
 **Home**
 ![home](https://user-images.githubusercontent.com/18662067/99783203-23980a00-2b40-11eb-8546-30dd9e942dfa.png)
